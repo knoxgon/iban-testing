@@ -6,7 +6,12 @@ import (
 	"github.com/knoxgon/codetest/ibanpkg"
 )
 
-//TestIBAN ...
+/*
+	Author: Volkan Güven
+	Description: Test for IBAN verification
+*/
+
+//TestIBAN tests the verification of IBANs
 func TestIBAN(t *testing.T) {
 	//ID: 1 - Test correct IBAN group
 	//Purpose: Trying to benchmark the iban with spaces and letter cases
@@ -24,12 +29,14 @@ func TestIBAN(t *testing.T) {
 	}
 
 	//ID: 2 - Test different IBAN groups
-	//Purpose: Trying different IBAN groups
+	//Purpose: Trying different IBAN groups,
+	//		   they should all pass except index[2] and index[5]
 	results2 := []bool{
 		ibanpkg.ControlIban("DE89 3704 0044 0532 0130 00"),
-		ibanpkg.ControlIban("BR1500000000000010932840814P2"),
+		ibanpkg.ControlIban("BR15 00000000000010932840814P2"),
+		ibanpkg.ControlIban(""),
 		ibanpkg.ControlIban("DK9520000123456789"),
-		ibanpkg.ControlIban("MT31MALT01100000000000000000123"),
+		ibanpkg.ControlIban("MT31MALT 01100000 0 0 0000 000000123"),
 		ibanpkg.ControlIban("MT31TALT01100000000000000000123"),
 		ibanpkg.ControlIban("AE4 600900000001234567 89"),
 	}
