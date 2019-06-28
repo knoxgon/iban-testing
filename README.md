@@ -6,23 +6,12 @@ go get -u github.com/knoxgon/codetest/ibanpkg
 
 ```
 
-### Example
+### How to run the tests?
+
+Open commandline and go the folder where main_test.go exists and type
 
 ```go
 
-import (
-  "fmt"
-  
-  "github.com/knoxgon/codetest/ibanpkg"
-)
-
-...
-
-isCorrect := ibanpkg.ControlIban("DE89 3704 0044 0532 0130 00")
-fmt.Println(isCorrect) //<- True
-
-isFalse := ibanpkg.ControlIban("XB12 33F4 0044 0532 0130 00")
-fmt.Println(isFalse) //<- True
-
+go test
 
 ```
